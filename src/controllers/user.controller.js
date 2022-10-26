@@ -18,6 +18,12 @@ const user = async (req, res) => {
     res.status(201).json({ token });
 };
 
+const getAll = async (_req, res) => {
+  const users = await userService.getAllService();
+  return res.status(200).json(users);
+};
+
 module.exports = {
   user,
+  getAll,
 };
