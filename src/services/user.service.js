@@ -7,6 +7,15 @@ const getAllService = async () => {
   return users;
 };
 
+const getByIdService = async (id) => {
+  const user = await User.findOne({ 
+    where: { id },
+    attributes: { exclude: ['password'] },
+   });
+
+  return user;
+};
+
 const create = async (newUser) => {
   const validation = await validateUser(newUser);
   if (validation.type) return validation;
@@ -18,4 +27,5 @@ const create = async (newUser) => {
 module.exports = {
   create,
   getAllService,
+  getByIdService,
 };
