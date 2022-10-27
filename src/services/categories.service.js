@@ -6,6 +6,12 @@ const getAllService = async () => {
   return category;
 };
 
+const createService = async (name) => {
+  const createdCategory = await Category.create({ name });
+  return createdCategory;
+};
+
 module.exports = {
   getAllService,
+  createService,
 };
